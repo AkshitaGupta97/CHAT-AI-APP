@@ -13,7 +13,7 @@ const Sidebar = () => {
       <div>{theme === "dark" ? <DarkLogo /> : <LightLogo />}</div>
 
       {/* button "New Chats" */}
-      <button className="flex justify-center items-center font-semibold w-full py-2 mt-10 text-white bg-gradient-to-r from-[#2f0952] to-[#470229] text-md rounded-md cursor-pointer ">
+      <button className="flex justify-center items-center font-semibold w-full py-2 mt-10 text-white bg-gradient-to-r from-[#6d24b2] to-[#8a0b53] text-md rounded-md cursor-pointer ">
         <span className="mr-2 text-xl">+</span> New Chat
       </button>
 
@@ -32,7 +32,7 @@ const Sidebar = () => {
       </div>
 
       {/* Recent chats */}
-      {chats.length > 0 && <p className="mt-4 font-semibold bg-gradient-to-r text-white text-center p-1 rounded-2xl from-[#2f0952] to-blue-300 text-md">Recent Chats</p>}
+      {chats.length > 0 && <p className="mt-4 font-semibold bg-gradient-to-r text-white text-center p-1 rounded-2xl from-amber-300 via-[#710844] to-purple-500 text-md">Recent Chats</p>}
       <div className="flex-1 font-semibold overflow-y-scroll mt-3 text-xs space-y-2">
         {chats
           .filter((chat) =>
@@ -45,7 +45,7 @@ const Sidebar = () => {
           .map((chat) => (
             <div
               key={chat._id}
-              className="p-2 px-4 dark:bg-[#57317C]/10 border border-gray-600 dark:border-[#80609F]/15 rounded-md cursor-pointer flex justify-between group"
+              className="p-2 px-4 dark:bg-[#57317C]/10 border border-gray-400 dark:border-[#80609F]/15 rounded-md cursor-pointer flex justify-between group"
             >
               <div>
                 <p className="truncate w-full">
@@ -66,12 +66,39 @@ const Sidebar = () => {
 
        {/* Community images */}   
 
-       <div onClick={() => {navigate('/community')}} className="flex items-center justify-center gap-2 font-semibold mt-4  bg-gradient-to-r text-white text-center p-1 rounded-2xl from-[#2f0952] to-blue-600 cursor-pointer hover:scale-100 transition-all">
+       <div onClick={() => {navigate('/community')}} className="flex text-xs items-center justify-center gap-2 font-semibold mt-6  bg-gradient-to-r text-white text-center p-1 rounded-2xl from-[#2f0952] to-blue-600 cursor-pointer hover:scale-100 transition-all">
           <div><span className=" material-symbols-outlined">imagesmode</span></div>
-          <div className="flex flex-col text-md">
+          <div className="flex flex-col">
             <p>Community Images</p>
           </div>
        </div>
+
+       {/* credit Purchaase images */}   
+
+       <div onChange={() => {navigate('/credits')}} className="flex items-center justify-between border border-gray-500 p-0.5 rounded-2xl justify-center gap-2 font-semibold mt-2 cursor-pointer hover:scale-100 transition-all">
+          <div><span class="material-symbols-outlined">diamond</span></div>
+          <div className="flex flex-col text-xs">
+            <p>Credits: {user?.credits}</p>
+            <p>Purchase to use <span className=" text-transparent bg-clip-text bg-gradient-to-r from-[#9c105f] via-purple-500 to-amber-500">Chatty Ai</span> </p>
+          </div>
+       </div>
+
+       {/* dark mode toogle */}   
+
+       <div className="flex items-center border border-gray-500 p-0.5 rounded-2xl justify-between gap-2 font-semibold mt-2 ">
+          <div className="flex items-center gap-2.5 text-sm">
+            <span class="material-symbols-outlined">routine</span>
+            <p>{theme==='dark'? "Light Mode" : "Dark Mode"}</p>
+          </div>
+
+          <label className="relative inline-flex cursor-pointer">
+            <input onClick={()=> setTheme(theme==='dark'? 'light' : 'dark')} type="checkbox" className="sr-only peer" checked={theme === 'dark'} />
+            
+            <div className="w-9 h-5 bg-gray-600 rounded-full peer-checked:bg-purple-700 transition-all"></div>
+            <span className="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform peer-checked:translate-x-4"></span>
+          </label>
+       </div>
+        {/* User Account */}
 
     </div>
   );

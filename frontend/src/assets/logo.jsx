@@ -2,8 +2,8 @@
 export const DarkLogo = () => {
     return (
         <div className="flex items-center space-x-1.5">
-            <span className="material-symbols-outlined text-[80px] text-white bg-gradient-to-tr from-indigo-500 via-purple-600 to-pink-500 rounded-full p-2 shadow-lg hover:rotate-4 transition-transform duration-300"> robot_2 </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-900 to-amber-500 text-xl font-semibold tracking-wide animate-pulse"> Chatty Ai </span><strong>🤖</strong>
+            <span className="material-symbols-outlined text-[80px] text-white bg-gradient-to-tr from-indigo-500 via-purple-400 to-pink-400 rounded-full p-2 shadow-lg hover:rotate-4 transition-transform duration-300"> robot_2 </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-amber-300 text-xl font-semibold tracking-wide animate-pulse"> Chatty Ai </span><strong>🤖</strong>
         </div>
     );
 };
