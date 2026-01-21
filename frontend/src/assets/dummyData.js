@@ -55,11 +55,13 @@ export const dummyChats = [
     "messages": [
       {
         "isImage": false,
-        "text": "Hi Alice, how can I help you today?"
+        "text": "Hi Alice, how can I help you today?",
+        "timestamp": "2026-01-20T10:00:00Z"
       },
       {
         "isImage": false,
-        "text": "Do you need assistance with your account?"
+        "text": "Do you need assistance with your account?",
+        "timestamp": "2026-01-20T10:01:00Z"
       }
     ]
   },
@@ -71,11 +73,14 @@ export const dummyChats = [
     "messages": [
       {
         "isImage": true,
-        "text": "Uploaded a screenshot of the error"
+        "text": "Uploaded a screenshot of the error",
+        "timestamp": "2026-01-20T11:15:00Z",
+        "imageUrl": "https://img.freepik.com/premium-psd/png-animated-girl-using-laptop_53876-191180.jpg"
       },
       {
         "isImage": false,
-        "text": "Here’s the error message I’m seeing."
+        "text": "Here’s the error message I’m seeing.",
+        "timestamp": "2026-01-20T11:16:00Z"
       }
     ]
   },
@@ -87,11 +92,13 @@ export const dummyChats = [
     "messages": [
       {
         "isImage": false,
-        "text": "Can you explain the pricing plans?"
+        "text": "Can you explain the pricing plans?",
+        "timestamp": "2026-01-20T12:30:00Z"
       },
       {
         "isImage": false,
-        "text": "I want to know the difference between Basic and Pro."
+        "text": "I want to know the difference between Basic and Pro.",
+        "timestamp": "2026-01-20T12:31:00Z"
       }
     ]
   },
@@ -103,11 +110,13 @@ export const dummyChats = [
     "messages": [
       {
         "isImage": true,
-        "text": "Shared a photo of the product issue"
+        "text": "Shared a photo of the product issue",
+        "timestamp": "2026-01-20T13:45:00Z"
       },
       {
         "isImage": false,
-        "text": "The product stopped working after two days."
+        "text": "The product stopped working after two days.",
+        "timestamp": "2026-01-20T13:46:00Z"
       }
     ]
   },
@@ -119,12 +128,15 @@ export const dummyChats = [
     "messages": [
       {
         "isImage": false,
-        "text": "Thanks for resolving my problem!"
+        "text": "Thanks for resolving my problem!",
+        "timestamp": "2026-01-20T14:10:00Z"
       },
       {
         "isImage": false,
-        "text": "I’ll recommend your service to my friends."
+        "text": "I’ll recommend your service to my friends.",
+        "timestamp": "2026-01-20T14:11:00Z"
       }
     ]
   }
 ]
+
