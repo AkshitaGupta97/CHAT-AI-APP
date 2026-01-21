@@ -1,16 +1,20 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Sidebar from "./components/Sidebar"
 import ChatBox from "./components/ChatBox"
 import Credits from "./pages/Credits"
 import Community from "./pages/Community"
 import { useState } from "react";
 import 'prismjs/themes/prism-okaidia.css';
+import Loading from "./pages/Loading"
 // or try: prism-tomorrow.css, prism-okaidia.css, prism-solarizedlight.css
 
 
 const App = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {pathname} = useLocation();
+
+  if(pathname === '/loading') return <Loading />
 
   return (
     <>
@@ -26,6 +30,7 @@ const App = () => {
           </Routes>
         </div>
       </div>
+
     </>
   )
 }
