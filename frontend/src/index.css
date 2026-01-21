@@ -15,3 +15,36 @@
   display: none;
 }
 
+.reset-tw :not(pre):not(code) {
+  all: revert;
+}
+/*
+.reset-tw  
+This is a class selector. It applies styles to elements inside any container with the class reset-tw.
+:not(pre):not(code)  
+This means: select all elements inside .reset-tw except <pre> and <code> tags.
+pre and code are excluded because you usually don’t want to reset their styles (they often need special formatting for code blocks).
+all: revert;
+The all property is a special CSS shorthand that resets all CSS properties (except unicode-bidi and direction) for the selected element.
+*/
+
+/* this is all about prismjs color effect */
+code[class*="language-"] {
+  font-family: 'Fira Code', monospace;
+  background: #1e1e1e;
+  color: #dcdcdc;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.token.keyword { color: #ff79c6; }
+.token.string { color: #f1fa8c; }
+.token.function { color: #50fa7b; }
+
+
+.loader div:nth-child(2){
+  animation-delay: 0.2s;
+}
+.loader div:nth-child(3){
+  animation-delay: 0.4s;
+}

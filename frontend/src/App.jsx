@@ -3,7 +3,10 @@ import Sidebar from "./components/Sidebar"
 import ChatBox from "./components/ChatBox"
 import Credits from "./pages/Credits"
 import Community from "./pages/Community"
-import { useState } from "react"
+import { useState } from "react";
+import 'prismjs/themes/prism-okaidia.css';
+// or try: prism-tomorrow.css, prism-okaidia.css, prism-solarizedlight.css
+
 
 const App = () => {
 

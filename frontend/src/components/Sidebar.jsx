@@ -40,7 +40,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}) => {
               ? chat.message[0].content
                   .toLowerCase()
                   .includes(search.toLowerCase())
-              : chat.name.toLowerCase().includes(search.toLowerCase())
+              : chat.userName.toLowerCase().includes(search.toLowerCase())
           )
           .map((chat) => (
             <div
@@ -51,7 +51,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}) => {
                 <p className="truncate w-full">
                   {Array.isArray(chat.message) && chat.message.length > 0
                     ? chat.message[0].content.slice(0, 32)
-                    : chat.name}
+                    : chat.userName}
                 </p>
                 <p className="text-xs text-gray-600 dark:text-[#B1A6C0]">
                   {moment(chat.updatedAt).fromNow()}

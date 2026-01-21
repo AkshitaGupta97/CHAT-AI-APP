@@ -54,9 +54,9 @@ export const dummyChats = [
     "name": "SupportBot",
     "messages": [
       {
-        "isImage": false,
+        "isImage": true,
         "text": "Hi Alice, how can I help you today?",
-        "timestamp": "2026-01-20T10:00:00Z"
+        "timestamp": "2026-01-20T10:00:00Z",
       },
       {
         "isImage": false,
@@ -79,7 +79,7 @@ export const dummyChats = [
       },
       {
         "isImage": false,
-        "text": "Here’s the error message I’m seeing.",
+        "text": "```js\nconsole.error('Unexpected token < in JSON');\n```",
         "timestamp": "2026-01-20T11:16:00Z"
       }
     ]
@@ -93,11 +93,12 @@ export const dummyChats = [
       {
         "isImage": false,
         "text": "Can you explain the pricing plans?",
-        "timestamp": "2026-01-20T12:30:00Z"
+        "timestamp": "2026-01-20T12:30:00Z",
+        "role": "user"
       },
       {
         "isImage": false,
-        "text": "I want to know the difference between Basic and Pro.",
+        "text": "```python\ndef calculate_price(plan):\n    if plan == 'Basic':\n        return 10\n    elif plan == 'Pro':\n        return 25\n```",
         "timestamp": "2026-01-20T12:31:00Z"
       }
     ]
@@ -115,7 +116,7 @@ export const dummyChats = [
       },
       {
         "isImage": false,
-        "text": "The product stopped working after two days.",
+        "text": "```html\n<div class=\"error\">Product stopped working</div>\n```",
         "timestamp": "2026-01-20T13:46:00Z"
       }
     ]
@@ -129,14 +130,15 @@ export const dummyChats = [
       {
         "isImage": false,
         "text": "Thanks for resolving my problem!",
-        "timestamp": "2026-01-20T14:10:00Z"
+        "timestamp": "2026-01-20T14:10:00Z",
       },
       {
         "isImage": false,
-        "text": "I’ll recommend your service to my friends.",
+        "text": "```sql\nSELECT * FROM users WHERE status = 'active';\n```",
         "timestamp": "2026-01-20T14:11:00Z"
       }
     ]
   }
-]
+];
+
 
