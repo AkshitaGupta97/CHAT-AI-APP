@@ -25,20 +25,27 @@ const Credits = () => {
       <div className="flex flex-wrap justify-center gap-8">
         {
           plans.map((plan) => (
-            <div className={`border border-gray-400 dark:border-purple-700 rounded-lg shadow hover:shadow-lg transition-shadow p-6 min-w-75 flex flex-col 
-            ${plan._id==='pro' ? "bg-purple-200 dark:bg-purple-950" : "bg-blue-100 dark:bg-transparent" }`}>
+            <div className={`border border-yellow-400 rounded-lg shadow hover:shadow-lg transition-shadow p-6 min-w-75 flex flex-col 
+            ${plan._id==='pro' ? "bg-purple-200 dark:bg-gray-800" : "bg-blue-100 dark:bg-transparent" }`}>
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{plan.name}</h3>
                 <p className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-4">${plan.price}
-                  <span className="text-sm font-semibold  text-base font-normal text-gray-600 dark:text-purple-300">{' '}/ {plan.credits} credits</span>
+                  <span className="text-sm font-semibold   text-gray-600 dark:text-purple-300">{' '}/ {plan.credits} credits</span>
                 </p>
 
-                <ul>
+                <ul className="list-disc text-xs font-semibold list-inside text-gray-700 dark:text-purple-300 space-y-1">
                   {
-                    plan.features.map(())
+                    plan.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))
                   }
                 </ul>
               </div>
+
+              <button className=" font-semibold mt-6 rounded-md bg-purple-700 hover:bg-purple-800 active:bg-purple-900 text-white py-2 cursor-pointer transition-colors ">
+                  Buy Now
+              </button>
+
             </div>
           ))
         }
