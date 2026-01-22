@@ -16,7 +16,6 @@ export const AppContextProvider = ({children}) => {
         setUser(dummyUserData);
     }
 
-
     const fetchUserChats = () => {
         setChats(dummyChats);
         if (dummyChats.length > 0) {
