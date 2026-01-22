@@ -75,7 +75,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}) => {
 
        {/* credit Purchaase images */}   
 
-       <div onChange={() => {navigate('/credits'); setIsMenuOpen(false)}} className="flex items-center justify-between border border-gray-500 p-0.5 rounded-2xl justify-center gap-2 font-semibold mt-2 cursor-pointer hover:scale-100 transition-all">
+       <div onClick={() => {navigate('/credits'); setIsMenuOpen(false)}} className="flex items-center justify-between border border-gray-500 p-0.5 rounded-2xl justify-center gap-2 font-semibold mt-2 cursor-pointer hover:scale-100 transition-all">
           <div><span className="material-symbols-outlined">diamond</span></div>
           <div className="flex flex-col text-xs">
             <p>Credits: {user?.credits}</p>

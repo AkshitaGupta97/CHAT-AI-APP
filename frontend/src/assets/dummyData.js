@@ -9,7 +9,7 @@ export const dummyUserData = {
 
 export const dummyPlans = [
   {
-    "_id": "plan_basic_001",
+    "_id": "basic",
     "name": "Basic Plan",
     "price": 9.99,
     "credits": 100,
@@ -20,7 +20,7 @@ export const dummyPlans = [
     ]
   },
   {
-    "_id": "plan_pro_002",
+    "_id": "pro",
     "name": "Pro Plan",
     "price": 29.99,
     "credits": 500,
@@ -32,7 +32,7 @@ export const dummyPlans = [
     ]
   },
   {
-    "_id": "plan_enterprise_003",
+    "_id": "enterpris",
     "name": "Enterprise Plan",
     "price": 99.99,
     "credits": 2000,
@@ -147,24 +147,18 @@ export const dummyPublishedImages = [
     userName: "Bob",
     title: 'Nature Landscape',
     imageUrl: 'https://cdn.pixabay.com/photo/2017/12/08/11/28/nature-3005607_960_720.jpg',
-    publishedAt: '2025-01-05',
-    isPublished: true
   },
   {
     id: 2,
     title: 'Modern City',
     userName: "Alice",
     imageUrl: 'https://tse1.explicit.bing.net/th/id/OIP.smGmbUIpZO7w8O_aB1qOCgHaEo?cb=defcachec2&rs=1&pid=ImgDetMain&o=7&rm=3',
-    publishedAt: '2025-01-10',
-    isPublished: true
   },
   {
     id: 3,
     title: 'Ocean View',
     userName: "Sam",
     imageUrl: 'https://tse4.mm.bing.net/th/id/OIP.HjWcut1nuKMUdWSMTqu-egHaEK?cb=defcachec2&rs=1&pid=ImgDetMain&o=7&rm=3',
-    publishedAt: '2025-01-15',
-    isPublished: true
   }
 ];
 
