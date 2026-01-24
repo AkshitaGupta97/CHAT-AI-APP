@@ -4,6 +4,7 @@ import 'dotenv/config';
 import connectDB from "./config/db.js";
 import userRoute from "./routes/userRoute.js";
 import chatRouter from "./routes/chatRoute.js";
+import messageRouter from "./routes/messageRoutes.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.get('/', (req, res) => res.send('Server is Live!'));
 app.use('/api/user', userRoute);
 app.use('/api/chat', chatRouter);
+app.use('/api/message', messageRouter);
 
 const PORT = 3000; // or process.env.PORT || 3000
 

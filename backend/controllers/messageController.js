@@ -3,6 +3,7 @@ import imageKit from "../config/imageKit.js";
 import Chat from "../models/chat.js";
 import User from "../models/user.js";
 import axios from 'axios'
+import { openai } from "../config/googleAi.js";
 
 // Text-based Ai chat message contriller
 export const textMessageController = async(req, res) => {
@@ -48,6 +49,7 @@ export const textMessageController = async(req, res) => {
         await User.updateOne({_id: userId} , {$inc: {credits: -1}});
 
     } catch (error) {
+        console.error('Error in message is: ', error);
         res.json({success:false, message: error.message});
     }
 }
@@ -104,6 +106,7 @@ export const imageMessageController = async(req, res) => {
         await User.updateOne({_id: userId} , {$inc: {credits: -2}});
 
     } catch (error) {
+        console.log(error)
         res.json({success: false, message: error.message});
     }
 }
