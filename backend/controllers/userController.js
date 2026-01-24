@@ -9,7 +9,7 @@ const generateToken = (id) => {
     });
 
 }
-console.log("JWT_SECRET =", process.env.JWT_SECRET);
+//console.log("JWT_SECRET =", process.env.JWT_SECRET);
 
 // Api to register user
 export const registerUser = async (req, res) => {
