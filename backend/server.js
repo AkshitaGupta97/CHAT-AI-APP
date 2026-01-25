@@ -14,7 +14,7 @@ const app = express();
 await connectDB();
 
 // stripe webhook
-add.post('api/stripe', express.raw({type: 'application/json'}), stripeWebhook);
+app.post('api/stripe', express.raw({type: 'application/json'}), stripeWebhook);
 
 // Middleware
 app.use(cors());
