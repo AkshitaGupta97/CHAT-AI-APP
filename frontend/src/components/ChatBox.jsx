@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useAppContext } from "../context/AppContext"
 import { DarkLogo, LightLogo } from "../assets/logo";
 import Message from "./Message";
+import toast from "react-hot-toast";
 
 const ChatBox = () => {
-  const {selectedChats, theme} = useAppContext();
+  const {selectedChats, theme, user, token, axios, setUser} = useAppContext();
 
   const containerRef = useRef(null);
 
@@ -16,6 +17,12 @@ const ChatBox = () => {
 
   const onSubmit = async(e) => {
     e.preventDefault();
+    try {
+      e.preventDefault();
+      if(!user) return toast('Login to send message...')
+    } catch (error) {
+      
+    }
   }
 
   useEffect(() => {
