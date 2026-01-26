@@ -5,7 +5,7 @@ import Message from "./Message";
 import toast from "react-hot-toast";
 
 const ChatBox = () => {
-  const {selectedChats, theme, user, token, axios, setUser} = useAppContext();
+  const { selectedChats, theme, user, token, axios, setUser } = useAppContext();
 
   const containerRef = useRef(null);
 
@@ -15,25 +15,60 @@ const ChatBox = () => {
   const [mode, setMode] = useState("text");
   const [isPublished, setIsPublished] = useState(false);
 
-  const onSubmit = async(e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     try {
       e.preventDefault();
-      if(!user) return toast('Login to send message...')
+      if (!user) return toast('Login to send message...');
+      setLoading(true);
+      // if user is already looged in
+      const promptCopy = prompt;
+      setPrompt('');
+
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'user',
+          content: promptCopy,
+          timestamp: Date.now(),
+          isImage: false
+        }
+      ]);
+
+      const { data } = await axios.post(`/api/message/${mode}`, { chatId: selectedChats._id, prompt: promptCopy , isPublished }, { headers: { Authorization: `Bearer ${token}` } });
+      if (data.success) {
+        setMessages(prev => [...prev, data.reply]);
+        console.log("AI RESPONSE:", data);
+        // decrease credits
+        if (mode === 'image') {
+          setUser(prev => ({ ...prev, credits: prev.credits - 2 }));
+        }
+        else {
+          setUser(prev => ({ ...prev, credits: prev.credits - 1 }));
+        }
+      }
+      else {
+        toast.error(data.message);
+        setPrompt(promptCopy)
+      }
     } catch (error) {
-      
+      toast.error(error.message);
+    }
+    finally {
+      setPrompt('');
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    if(selectedChats){
+    if (selectedChats) {
       setMessages(selectedChats.messages);
     }
   }, [selectedChats]);
 
   useEffect(() => {
     containerRef.current.scrollTo({
-      top: containerRef.current.scrollHeight, 
+      top: containerRef.current.scrollHeight,
       behavior: "smooth"
     })
   }, [messages])
@@ -45,13 +80,13 @@ const ChatBox = () => {
         {
           messages.length === 0 && (
             <div className="h-full flex flex-col items-center justify-center gap-2 text-primary">
-              <div className="w-full max-w-56 sm:max-w-68">{theme==='dark' ? <DarkLogo /> : <LightLogo /> }</div>
+              <div className="w-full max-w-56 sm:max-w-68">{theme === 'dark' ? <DarkLogo /> : <LightLogo />}</div>
               <p className="mt-5 text-3xl sm:text-3xl text-center text-gray-500 dark:text-white/30">Ask me anything...</p>
             </div>
           )
         }
         {
-          messages.map((message, index) => <Message key={index} message={message} /> )
+          messages.map((message, index) => <Message key={index} message={message} />)
         }
 
         {/* Three dots Loadings */}
@@ -65,24 +100,24 @@ const ChatBox = () => {
 
       </div>
 
-       {
+      {
         mode === 'image' && (
           <label className="inline-flex font-semibold items-center gap-2 mb-3 text-sm mx-auto" >
             <p className="text-xs">Publish Generaded Image to Community</p>
-            <input type="checkbox" className="cursor-pointer" checked={isPublished} onChange={(e)=> setIsPublished(e.target.checked)} />
+            <input type="checkbox" className="cursor-pointer" checked={isPublished} onChange={(e) => setIsPublished(e.target.checked)} />
           </label>
         )
-       } 
+      }
 
       {/* prompt input box */}
       <form onSubmit={onSubmit}
         className="bg-primary/80 dark:bg-slate-800 font-semibold text-xs border border-primary/80 dark:border-slate-300 rounded-full w-full max-x-2xl p-3 pl-4 mx-auto flex gap-4 items-center"
-       >
+      >
         <select onChange={(e) => setMode(e.target.value)} className="text-sm pl-3 pr-2 outline-none">
           <option className="dark:bg-slate-900" value="text">Text</option>
           <option className="dark:bg-slate-900" value="image">Image</option>
         </select>
-        <input  onChange={(e) => setPrompt(e.target.value)} value={prompt} className="flex-1 w-full text-sm outline-none"
+        <input onChange={(e) => setPrompt(e.target.value)} value={prompt} className="flex-1 w-full text-sm outline-none"
           type="text" placeholder="Ask with Chatty-Ai" required />
 
         <button disabled={loading} className="bg-purple-900 rounded-full text-center p-0.5">
