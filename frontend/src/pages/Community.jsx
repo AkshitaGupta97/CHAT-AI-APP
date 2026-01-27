@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import Loading from "./Loading";
 import { dummyPublishedImages } from "../assets/dummyData";
+import { useAppContext } from "../context/AppContext";
 
 const Community = () => {
 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const {axios} = useAppContext();
 
   const fetchImages = () => {
     setLoading(false);
