@@ -30,12 +30,8 @@ export const textMessageController = async (req, res) => {
       model: "gemini-3-flash-preview",
       messages: [
         {
-          role: "system",
-          content: "You are a helpful assistant."
-        },
-        {
           role: "user",
-          content: "Explain to me how AI works",
+          content: prompt,
         },
       ],
     });
