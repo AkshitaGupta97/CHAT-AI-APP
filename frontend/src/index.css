@@ -31,8 +31,8 @@ The all property is a special CSS shorthand that resets all CSS properties (exce
 /* this is all about prismjs color effect */
 code[class*="language-"] {
   font-family: 'Fira Code', monospace;
-  background: #1e1e1e;
-  color: #dcdcdc;
+  background: #0d0d0d;
+  color: #6260c2;
   border-radius: 4px;
   padding: 0.5rem;
 }

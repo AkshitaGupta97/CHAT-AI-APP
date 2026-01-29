@@ -9,7 +9,6 @@ const AppContext = createContext();
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 console.log("🔥 VITE_SERVER_URL =", import.meta.env.VITE_SERVER_URL);
 
-
 export const AppContextProvider = ({ children }) => {
 
     const navigate = useNavigate();

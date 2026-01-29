@@ -25,7 +25,7 @@ const App = () => {
 
       <Toaster />
 
-      {!isMenuOpen && <p onClick={() => setIsMenuOpen(true)} className=" bg-gray-500 flex items-center justify-center rounded-md absolute top-3 left-3 w-8 h-8 cursor-pointer md:hidden not-dark:invert"><span className="material-symbols-outlined">menu</span></p>}
+      {!isMenuOpen && <p onClick={() => setIsMenuOpen(true)} className=" bg-gray-600 flex items-center justify-center rounded-md absolute top-3 left-3 w-8 h-8 cursor-pointer md:hidden not-dark:invert"><span className="material-symbols-outlined">menu</span></p>}
 
       {
         token ? (

@@ -36,7 +36,7 @@ export const textMessageController = async (req, res) => {
       ],
     });
 
-    const reply = {...choices[0].message,  timestamp: Date.now(), isImage: false,}
+    const reply = {...choices[0].message,  timestamp: Date.now(), isImage: false}
 
     // Save AI reply
     chat.messages.push(reply);
@@ -80,29 +80,29 @@ export const imageMessageController = async (req, res) => {
       isImage: false,
     });
 
-    // ✅ 1. Generate image from AI
-    const imageResult = await openai.images.generate({
-      model: "gpt-image-1",
-      prompt,
-      size: "1024x1024",
-    });
-
-    const base64Image = imageResult.data[0].b64_json;
-
-    // ✅ 2. Upload to ImageKit
+    // Encode the prompt
+    const encodedPrompt = encodeURIComponent(prompt);
+    // construct imageKit Ai generation url
+    const generatedImageUrl = `${process.env.IMAGEKIT_URL_ENDPOINT}/ik-genimg-prompt-${encodedPrompt}/Chat-ai-app/${Date.now()}.png?tr=w-800,h-800`;
+    // trigger image generation fetching from ImageKit
+    const aiImageResponse = await axios.get(generatedImageUrl, {responseType: "arraybuffer"});
+    // convert to Base64
+    const base64Image = `data:image/png;base64,${Buffer.from(aiImageResponse.data,"binary").toString('base64')}`;
+    
+    // Upload to Imagekit media library
     const uploadResponse = await imageKit.upload({
       file: base64Image,
       fileName: `${Date.now()}.png`,
-      folder: "Chat-ai-app",
+      folder: 'Chat-ai-app'
     });
 
     const reply = {
-      role: "assistant",
+      role: "assistant", 
       content: uploadResponse.url,
       timestamp: Date.now(),
       isImage: true,
-      isPublished,
-    };
+      isPublished
+    }
 
     chat.messages.push(reply);
     await chat.save();
